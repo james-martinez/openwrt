@@ -1,4 +1,0 @@
-image: openwrtorg/imagebuilder
-
-tasks:
-  - init: make menuconfig
