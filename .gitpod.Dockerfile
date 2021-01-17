@@ -1,8 +1,8 @@
-FROM gitpod/workspace-full
+FROM ubuntu:bionic
 
-# Install custom tools, runtimes, etc.
-# For example "bastet", a command-line tetris clone:
-# RUN brew install bastet
-#
-# More information: https://www.gitpod.io/docs/config-docker/
-RUN brew install rsync
+RUN apt update
+RUN apt install build-essential ccache ecj fastjar file g++ gawk \
+gettext git java-propose-classpath libelf-dev libncurses5-dev \
+libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
+python3-distutils python3-setuptools rsync subversion swig time \
+xsltproc zlib1g-dev 
