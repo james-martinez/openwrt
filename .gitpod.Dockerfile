@@ -1,6 +1,12 @@
-FROM alpine
+FROM ubuntu:18.04
 
-RUN apk add asciidoc bash bc binutils bzip2 cdrkit coreutils diffutils \
-findutils flex g++ gawk gcc gettext git grep intltool libxslt \
-linux-headers make ncurses-dev patch perl python2-dev python3-dev \
-rsync tar unzip util-linux wget zlib-dev
+RUN apt update && \
+apt install build-essential ccache ecj fastjar file g++ gawk \
+gettext git java-propose-classpath libelf-dev libncurses5-dev \
+libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
+python3-distutils python3-setuptools rsync subversion swig time \
+xsltproc zlib1g-dev
+
+RUN useradd -ms /bin/bash build
+USER build
+WORKDIR /home/build
