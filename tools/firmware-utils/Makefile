@@ -27,10 +27,7 @@ define Host/Compile
 	$(call cc,add_header)
 	$(call cc,addpattern)
 	$(call cc,asustrx)
-<<<<<<< HEAD
-=======
 	$(call cc,bcm4908asus,-Wall)
->>>>>>> upstream/master
 	$(call cc,bcm4908img,-Wall)
 	$(call cc,bcm4908kernel,-Wall)
 	$(call cc,buffalo-enc buffalo-lib,-Wall)

@@ -12,10 +12,6 @@ include $(INCLUDE_DIR)/version.mk
 include $(INCLUDE_DIR)/feeds.mk
 
 PKG_NAME:=base-files
-<<<<<<< HEAD
-PKG_RELEASE:=246
-=======
->>>>>>> upstream/master
 PKG_FLAGS:=nonshared
 PKG_RELEASE:=$(COMMITCOUNT)
 

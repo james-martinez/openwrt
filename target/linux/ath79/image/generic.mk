@@ -957,8 +957,6 @@ define Device/embeddedwireless_dorin
 endef
 TARGET_DEVICES += embeddedwireless_dorin
 
-<<<<<<< HEAD
-=======
 define Device/engenius_eap1200h
   $(Device/engenius_loader_okli)
   SOC := qca9557
@@ -970,7 +968,6 @@ define Device/engenius_eap1200h
 endef
 TARGET_DEVICES += engenius_eap1200h
 
->>>>>>> upstream/master
 define Device/engenius_eap300-v2
   $(Device/engenius_loader_okli)
   SOC := ar9341
@@ -1562,8 +1559,6 @@ define Device/openmesh_common_256k
 	pad-to $$(BLOCKSIZE)
   IMAGE/sysupgrade.bin := append-rootfs | pad-rootfs | \
 	openmesh-image ce_type=$$$$(OPENMESH_CE_TYPE) | append-metadata
-<<<<<<< HEAD
-=======
 endef
 
 define Device/openmesh_mr600-v1
@@ -1583,7 +1578,6 @@ define Device/openmesh_mr600-v2
   DEVICE_VARIANT := v2
   OPENMESH_CE_TYPE := MR600
   SUPPORTED_DEVICES += mr600v2
->>>>>>> upstream/master
 endef
 TARGET_DEVICES += openmesh_mr600-v2
 
