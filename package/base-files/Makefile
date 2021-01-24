@@ -12,8 +12,12 @@ include $(INCLUDE_DIR)/version.mk
 include $(INCLUDE_DIR)/feeds.mk
 
 PKG_NAME:=base-files
+<<<<<<< HEAD
 PKG_RELEASE:=246
+=======
+>>>>>>> upstream/master
 PKG_FLAGS:=nonshared
+PKG_RELEASE:=$(COMMITCOUNT)
 
 PKG_FILE_DEPENDS:=$(PLATFORM_DIR)/ $(GENERIC_PLATFORM_DIR)/base-files/
 PKG_BUILD_DEPENDS:=usign/host ucert/host

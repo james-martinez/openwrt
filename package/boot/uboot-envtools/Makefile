@@ -10,7 +10,11 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=uboot-envtools
 PKG_DISTNAME:=u-boot
 PKG_VERSION:=2020.04
+<<<<<<< HEAD
 PKG_RELEASE:=20
+=======
+PKG_RELEASE:=$(AUTORELEASE)
+>>>>>>> upstream/master
 
 PKG_SOURCE:=$(PKG_DISTNAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:= \
