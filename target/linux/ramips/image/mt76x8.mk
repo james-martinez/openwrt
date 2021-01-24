@@ -13,6 +13,26 @@ define Build/ravpower-wd009-factory
 	@mv $@.new $@
 endef
 
+ define Build/creality_wb-01-factory
+  echo $@
+  echo '#!/bin/sh' > $@.install.sh
+  echo 'kernel_size=851968' >> $@.install.sh
+  echo 'file=$$2/factory.bin' >> $@.install.sh
+  echo 'file_size=`wc -c < $$file`' >> $@.install.sh
+  echo 'fs_size=`expr $$file_size - $$kernel_size`' >> $@.install.sh
+  echo 'mtd_write -o 0 -l $$kernel_size write $$file Kernel' \
+    >> $@.install.sh
+  echo 'mtd_write -r -o $$kernel_size -l $$fs_size write $$file RootFS' \
+    >> $@.install.sh
+
+  tar cjf $@.tar.bz2 -C $(dir $@)  \
+    --transform="flags=r;s|$(notdir $@.install.sh)|install.sh|" \
+    --transform="flags=r;s|$(notdir $@)|factory.bin|" \
+    $(notdir $@ $@.install.sh) \
+
+  mv $@.tar.bz2 $@
+  rm $@.install.sh
+endef
 
 define Device/alfa-network_awusfree1
   IMAGE_SIZE := 7872k
@@ -62,6 +82,17 @@ define Device/buffalo_wcr-1166ds
   SUPPORTED_DEVICES += wcr-1166ds
 endef
 TARGET_DEVICES += buffalo_wcr-1166ds
+
+define Device/creality_wb-01
+  IMAGE_SIZE := 16064k
+  IMAGES += cxsw_update.tar.bz2
+  IMAGE/cxsw_update.tar.bz2 := $$(sysupgrade_bin) | creality_wb-01-factory
+  DEVICE_VENDOR := Creality
+  DEVICE_MODEL := WB-01
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
+  SUPPORTED_DEVICES += creality_wb-01
+endef
+TARGET_DEVICES += creality_wb-01
 
 define Device/cudy_wr1000
   IMAGE_SIZE := 7872k

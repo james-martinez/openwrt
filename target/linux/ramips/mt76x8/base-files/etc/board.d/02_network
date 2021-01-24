@@ -10,6 +10,7 @@ ramips_setup_interfaces()
 
 	case $board in
 	alfa-network,awusfree1|\
+    creality,wb-01|\
 	d-team,pbr-d1|\
 	glinet,microuter-n300|\
 	glinet,vixmini|\
